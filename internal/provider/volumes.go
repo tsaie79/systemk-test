@@ -20,6 +20,12 @@ const (
 )
 
 var varrun = defaultUnitDir + "/var/run"
+// mkdir varrun if not exist
+func init() {
+	if _, err := os.Stat(varrun); os.IsNotExist(err) {
+		os.MkdirAll(varrun, 0755)
+	}
+}
 
 
 // Volume describes what volumes should be created.
