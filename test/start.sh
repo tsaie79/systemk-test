@@ -2,13 +2,13 @@
 
 
 export VK_PATH=`pwd`
-export KUBECONFIG="$VK_PATH/config"
+# export KUBECONFIG="$VK_PATH/apiserver/config"
 
-# export KUBECONFIG="$HOME/.kube/config"
+export KUBECONFIG="$HOME/.kube/config"
 
 export VKUBELET_POD_IP="10.250.64.71"
-export APISERVER_CERT_LOCATION="$VK_PATH/test/apiserver/client.crt"
-export APISERVER_KEY_LOCATION="$VK_PATH/test/apiserver/client.key"
+export APISERVER_CERT_LOCATION="$VK_PATH/apiserver/client.crt"
+export APISERVER_KEY_LOCATION="$VK_PATH/apiserver/client.key"
 export KUBELET_PORT="10250"
 export NODENAME="vk-systemk"
 
