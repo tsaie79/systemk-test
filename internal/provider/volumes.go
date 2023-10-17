@@ -14,11 +14,13 @@ import (
 )
 
 const (
-	varrun       = "/var/run"
 	emptyDir     = "emptydirs"
 	secretDir    = "secrets"
 	configmapDir = "configmaps"
 )
+
+var varrun = defaultUnitDir + "/var/run"
+
 
 // Volume describes what volumes should be created.
 type Volume int
