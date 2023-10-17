@@ -13,7 +13,6 @@ import (
 	"github.com/virtual-kubelet/virtual-kubelet/node"
 	"github.com/virtual-kubelet/virtual-kubelet/node/api"
 	corev1 "k8s.io/api/core/v1"
-	"k8s.io/client-go/util/homedir"
 )
 
 // log is the global logger for the provider.
