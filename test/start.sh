@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export VK_PATH="/global/homes/j/jlabtsai/systemk-test/apiserver"
+export VK_PATH="/global/homes/j/jlabtsai/systemk-test/test/apiserver"
 export VK_BIN="/global/homes/j/jlabtsai/systemk-test"
 export KUBECONFIG="$VK_PATH/config"
 
