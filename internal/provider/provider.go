@@ -59,7 +59,7 @@ type p struct {
 // Ensure p implements provider.Provider.
 var _ Provider = (*p)(nil)
 
-const defaultUnitDir = "/var/run/systemk"
+const defaultUnitDir = "~/systemk"
 
 // New returns a new systemd provider.
 // informerFactory is the basis for ConfigMap and Secret retrieval and event handling.
