@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export VK_PATH="/workspaces/systemk-test/test/apiserver"
-export VK_BIN="/workspaces/systemk-test"
+export VK_PATH="/global/homes/j/jlabtsai/systemk-test/apiserver"
+export VK_BIN="/global/homes/j/jlabtsai/systemk-test"
 export KUBECONFIG="$VK_PATH/config"
 
 export VKUBELET_POD_IP="10.250.64.71"
