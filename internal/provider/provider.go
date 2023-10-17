@@ -13,6 +13,7 @@ import (
 	"github.com/virtual-kubelet/virtual-kubelet/node"
 	"github.com/virtual-kubelet/virtual-kubelet/node/api"
 	corev1 "k8s.io/api/core/v1"
+	"k8s.io/client-go/util/homedir"
 )
 
 // log is the global logger for the provider.
@@ -59,7 +60,9 @@ type p struct {
 // Ensure p implements provider.Provider.
 var _ Provider = (*p)(nil)
 
-const defaultUnitDir = "~/systemk"
+// get env var HOME
+var home_dir = os.Getenv("HOME")
+var defaultUnitDir = home_dir + "/systemk"
 
 // New returns a new systemd provider.
 // informerFactory is the basis for ConfigMap and Secret retrieval and event handling.
