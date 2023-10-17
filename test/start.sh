@@ -2,9 +2,9 @@
 
 
 export VK_PATH=`pwd`
-# export KUBECONFIG="$VK_PATH/apiserver/config"
+export KUBECONFIG="$VK_PATH/apiserver/config"
 
-export KUBECONFIG="$HOME/.kube/config"
+# export KUBECONFIG="$HOME/.kube/config"
 
 export VKUBELET_POD_IP="10.250.64.71"
 export APISERVER_CERT_LOCATION="$VK_PATH/apiserver/client.crt"
