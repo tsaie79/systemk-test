@@ -1,0 +1,72 @@
+Error: dial unix /var/run/dbus/system_bus_socket: connect: no such file or directory
+Usage:
+  systemk [flags]
+  systemk [command]
+
+Available Commands:
+  help        Help about any command
+  version     Show the version of the program
+
+Flags:
+      --addr string                        address to bind for serving requests from the Kubernetes API server (default ":10250")
+      --cluster-domain string              cluster domain (default "cluster.local")
+      --disable-taint                      disable the node taint
+      --external-iface string              IP address of this named interface to advertise as Node ExternalIP, takes precedence over --external-ip
+      --external-ip ip                     IP address to advertise as Node ExternalIP, 0.0.0.0 means auto-detect (default 0.0.0.0)
+      --full-resync-period duration        interval period for recurring listing of all Pods assigned to this Node (default 1m0s)
+  -h, --help                               help for systemk
+      --internal-iface string              IP address of this named interface to advertise as Node InternalIP, takes precedence over --internal-ip
+      --internal-ip ip                     IP address to advertise as Node InternalIP, 0.0.0.0 means auto-detect (default 0.0.0.0)
+      --klog.v Level                       number for the log level verbosity
+      --kubeconfig string                  cluster client configuration
+      --metrics-addr string                address to listen for metrics/stats requests (default ":10255")
+      --nodename string                    value to be set as the Node name and label node.k8s.io/hostname
+      --override-root-uid int              override the root user with this UID
+      --pod-sync-workers int               number of pod synchronization workers (default 10)
+      --stream-creation-timeout duration   stream-creation-timeout is the maximum time for streaming connection (default 30s)
+      --stream-idle-timeout duration       maximum time a streaming connection can be idle before the connection is automatically closed (default 30s)
+      --tls-cert string                    path to the certificate to secure the kubelet API
+      --tls-key string                     path to the private key to sign the kubelet API
+
+Use "systemk [command] --help" for more information about a command.
+
+F1017 19:34:35.263030   27101 main.go:76] dial unix /var/run/dbus/system_bus_socket: connect: no such file or directory
+goroutine 1 [running]:
+k8s.io/klog/v2.stacks(0x1)
+	/go/pkg/mod/k8s.io/klog/v2@v2.8.0/klog.go:1021 +0x85
+k8s.io/klog/v2.(*loggingT).output(0x24ab380, 0x3, {0x0, 0x0}, 0xc0006638f0, {0x1cf4a75?, 0xc000515788?}, 0xc00063fd80?, 0x0)
+	/go/pkg/mod/k8s.io/klog/v2@v2.8.0/klog.go:970 +0x57c
+k8s.io/klog/v2.(*loggingT).printDepth(0xc000640000?, 0x150e680?, {0x0, 0x0}, {0x0, 0x0}, 0x14af840?, {0xc0001388a0, 0x2, 0x2})
+	/go/pkg/mod/k8s.io/klog/v2@v2.8.0/klog.go:733 +0x19a
+k8s.io/klog/v2.FatalDepth(...)
+	/go/pkg/mod/k8s.io/klog/v2@v2.8.0/klog.go:1495
+github.com/virtual-kubelet/virtual-kubelet/log/klogv2.(*adapter).Fatal(0x1964ac0?, {0xc00039fcd0, 0x1, 0x1})
+	/go/pkg/mod/github.com/virtual-kubelet/virtual-kubelet@v1.5.1-0.20210601190559-68347d4ed102/log/klogv2/klogv2.go:113 +0xe6
+main.main()
+	/workspaces/systemk-test/main.go:76 +0x646
+
+goroutine 6 [chan receive]:
+k8s.io/klog/v2.(*loggingT).flushDaemon(0x0?)
+	/go/pkg/mod/k8s.io/klog/v2@v2.8.0/klog.go:1164 +0x66
+created by k8s.io/klog/v2.init.0 in goroutine 1
+	/go/pkg/mod/k8s.io/klog/v2@v2.8.0/klog.go:418 +0xf4
+
+goroutine 7 [select]:
+go.opencensus.io/stats/view.(*worker).start(0xc0000ce7d0)
+	/go/pkg/mod/go.opencensus.io@v0.22.3/stats/view/worker.go:154 +0x9f
+created by go.opencensus.io/stats/view.init.0 in goroutine 1
+	/go/pkg/mod/go.opencensus.io@v0.22.3/stats/view/worker.go:32 +0x7f
+
+goroutine 50 [syscall]:
+os/signal.signal_recv()
+	/usr/local/go/src/runtime/sigqueue.go:152 +0x29
+os/signal.loop()
+	/usr/local/go/src/os/signal/signal_unix.go:23 +0x13
+created by os/signal.Notify.func1.1 in goroutine 1
+	/usr/local/go/src/os/signal/signal.go:151 +0x1f
+
+goroutine 51 [chan receive]:
+main.main.func1()
+	/workspaces/systemk-test/main.go:52 +0x25
+created by main.main in goroutine 1
+	/workspaces/systemk-test/main.go:51 +0x10d
