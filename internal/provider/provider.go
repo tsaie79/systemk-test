@@ -63,7 +63,7 @@ var _ Provider = (*p)(nil)
 var home_dir = os.Getenv("HOME")
 var defaultUnitDir = home_dir + "/systemk"
 // create the directory if it doesn't exist
-var err = os.MkdirAll(defaultUnitDir, 0750)
+var err = os.MkdirAll(defaultUnitDir, 0777)
 
 // New returns a new systemd provider.
 // informerFactory is the basis for ConfigMap and Secret retrieval and event handling.
