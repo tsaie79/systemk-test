@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello
+spec:
+  # securityContext:
+  #     #  windowsOptions:
+  #     #     runAsUserName: jeng-yuantsai
+  #   runAsUser: 1
+  nodeSelector:
+    node.kubernetes.io/instance-type: systemk
+  tolerations:
+    - key: "virtual-kubelet.io/provider"
+      operator: "Equal"
+      value: "systemk"
+      effect: "NoSchedule"
+  containers:
+    - name: bash
+      image: /bin/bash
+
+      command: ["/bin/bash", "-c"]
+      args: ["while true; do echo 'Hello World' > /data/hello.txt; sleep 10; done"]
+      env:
+        - name: OWNER
+          value: someone
+
+      volumeMounts:
+      - mountPath: /data
+        name: shared-dir
+
+  volumes:
+  - name: shared-dir
+    emptyDir: {} # this volume is backed by systemk's shared memory
