@@ -19,4 +19,4 @@ echo "{\"$NODENAME\": {\"cpu\": \"0\", \"memory\": \"0Gi\", \"pods\": \"0\"}}" >
 
 # "$VK_BIN/systemk" --nodename $NODENAME --provider mock --provider-config $HOME/.host-cfg.json --klog.v 1 > ./vk.log 2>&1 
 
-$VK_PATH/../systemk --kubeconfig=$KUBECONFIG --nodename=$NODENAME > ./vk.log 2>&1 
+$VK_PATH/../systemk --kubeconfig=$KUBECONFIG --nodename=$NODENAME --klog.v 3 > ./vk.log 2>&1  

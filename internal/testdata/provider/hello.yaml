@@ -7,7 +7,7 @@ spec:
     node.kubernetes.io/instance-type: systemk
   tolerations:
     - key: "virtual-kubelet.io/provider"
-      operator: "Equal"
+      # operator: "Equal"
       value: "systemk"
       effect: "NoSchedule"
   containers:
